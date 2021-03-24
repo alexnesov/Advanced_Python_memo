@@ -7,7 +7,6 @@ Each number after that is twice as long as the number before.
 
 
 A solution is to remember the values that were computed before.
-That's where the 
 """
 
 """
@@ -25,8 +24,9 @@ def main():
 
 
 
-from functools import cache
-@cache
+import functools
+
+@functools.lru_cache
 def fib(n):
     if n <= 1:
         return n
@@ -42,4 +42,5 @@ def main():
 
 
 if __name__ == '__main__':
+
     main()
