@@ -1,7 +1,7 @@
 # https://www.youtube.com/watch?v=DnKxKFXB4NQ&ab_channel=mCoding
 
 """
-Recursive fashion, extremely inefficient?
+Recursive fashion, extremely inefficient.
 Around 31-32 iterations the code starts to halt, it get's extremely slow.
 Each number after that is twice as long as the number before.
 
