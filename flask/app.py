@@ -11,7 +11,8 @@ from flask import Flask, render_template
 mumtiple route function?
 If no, what is the other better solution?
 
-2.
+2. How to user the same arguments without repeting them?
+(i. e passing same argument to multile function --> render_template())
 """
 app = Flask(__name__)
 
@@ -23,12 +24,10 @@ def dotest():
     return one
 
 
-
 def dotest2():
     two = 'two'
     print('two')
     return two
-
 
 
 def dotest3():
@@ -36,9 +35,13 @@ def dotest3():
     print('three')
     return three
 
+
 one = str(dotest())
 two = dotest2()
 three = dotest3()
+
+args=dict(one=one, two=two, three=three)
+print(args)
 
 @app.route('/')
 def home():
