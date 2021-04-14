@@ -14,7 +14,7 @@ If no, what is the other better solution?
 2. How to use the same arguments without repeting them?
 (i. e passing same argument to multile function --> render_template())
 """
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='/static')
 
 
 def dotest():
@@ -42,7 +42,7 @@ SQL_COMMAND = ''
 
 @app.route('/')
 def home():
-    print('foo')
+    print(SQL_COMMAND)
     return render_template('welcome.html', SQL_COMMAND=SQL_COMMAND, **args)  
 
 
