@@ -1,5 +1,5 @@
 # import the Flask class from the flask module
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 
 """
@@ -38,12 +38,22 @@ two = dotest2()
 three = dotest3()
 
 args=dict(one=one, two=two, three=three)
+SQL_COMMAND = ''
 
 @app.route('/')
 def home():
     print('foo')
-    return render_template('welcome.html', **args)  
+    return render_template('welcome.html', SQL_COMMAND=SQL_COMMAND, **args)  
 
+
+######---Get text from textbox---######
+@app.route('/', methods=['POST'])
+def my_form_post():
+    global SQL_COMMAND
+    SQL_COMMAND = request.form['text']
+    print(SQL_COMMAND)
+    return render_template('welcome.html', SQL_COMMAND=SQL_COMMAND, **args) 
+######--------------------######
 
 
 @app.route('/test_one')
@@ -51,6 +61,5 @@ def welcome():
     print('bar')
     return render_template('test_one.html',**args)
 
-# start the server with the 'run()' method
 if __name__ == '__main__':
     app.run(debug=True)
