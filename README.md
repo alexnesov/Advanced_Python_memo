@@ -6,4 +6,6 @@ Some features:
 <li>Send data from textbox into Flask</li>
 <li>Caching</li>
 <li>Dictionnary to series mapping</li>
+<li>Decorators</li>
 <ul>
+  
